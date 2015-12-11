@@ -1,0 +1,48 @@
+---
+Name: bgmrpc
+Cartridge-Short-Name: BGMRPC
+Display-Name: BGMRPC 0.1
+Description: A RPC server based on websocket  protocol and Qt Library.
+Version: '0.1'
+License: GPL3
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: blueghost
+Vendor: blueghost
+Categories:
+- service
+- experimental
+Website: http://blueghost.coolpage.biz/
+Provides:
+- bgmrpc-0.1
+- bgmrpc
+Publishes: 
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
+Scaling:
+  Min: 1
+  Max: 1
+Group-Overrides:
+- components:
+  - web-proxy
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: PORT
+  Private-Port: 9000
+  Public-Port-Name: PROXY_PORT
+  Protocols:
+  - ws
+  Options:
+    primary: true
+  Mappings:
+  - Frontend: /rpc
+    Backend: ''
+    Options:
+      websocket: true
+  - Frontend: /health
+    Backend: ''
+    Options:
+      health: true
+
+Source-Url: https://github.com/SeekAWayOut/openshift-cartridge-BGMRPC.git
