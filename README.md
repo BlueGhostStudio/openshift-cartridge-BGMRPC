@@ -1,2 +1,2 @@
-# bgmrpcPhpClient
-bgmrpc client for php
+# openshift-cartridge-BGMRPC
+BGMRPC cartridge
